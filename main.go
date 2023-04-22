@@ -1,11 +1,9 @@
 package main
 
-import (
-	"fmt"
-	"sales-order-srv/driver"
-)
+import "sales-order-srv/driver"
 
 func main() {
-	driver.InitDB()
-	fmt.Println("hello")
+	//driver.InitElastic()
+	//driver.Create()
+	driver.Mappping()
 }
