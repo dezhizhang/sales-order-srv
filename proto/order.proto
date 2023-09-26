@@ -1,0 +1,33 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+service Order{
+  rpc CartItemList(UserInfo) returns(ResponseCartItemList); //获取用户购物车信息
+  rpc CreateCartItem(RequestCartItem) returns(ResponseProductCartInfo); // 添加商品到购物车
+}
+
+message UserInfo{
+  int32 id = 1;
+}
+
+message RequestCartItem{
+  int32 id = 1;
+  int32 userId = 2;
+  int32 productId = 3;
+  int32 nums = 4;
+  bool  checked = 5;
+}
+
+// 商品信息
+message ResponseProductCartInfo{
+  int32 id = 1;
+  int32 userId = 2;
+  int32 productId = 3;
+  int32 nums = 4;
+  bool  checked = 5;
+}
+
+message ResponseCartItemList{
+  int32  total = 1;
+  repeated ResponseProductCartInfo data = 2;
+}
